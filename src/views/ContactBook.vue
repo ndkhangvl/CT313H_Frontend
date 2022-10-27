@@ -47,6 +47,15 @@
                     <i class="fas fa-address-card" />
                 </h4>
                 <ContactCard :contact="activeContact" />
+                <router-link
+                    :to="{
+                        name: 'contact.edit',
+                        params: { id: activeContact.id },
+                    }"
+                >
+                    <span class="mt-2 badge badge-warning">
+                        <i class="fas fa-edit" /> Hiệu chỉnh</span>
+                </router-link>
             </div>
         </div> 
     </div>
@@ -63,6 +72,7 @@ export default {
         InputSearch,
         ContactList,
     },
+    //The full code will be presented below
     data() {
         return {
             contacts: [],
@@ -71,17 +81,21 @@ export default {
         };
     },
     watch: {
+        // Monitor changes on searchText
+        // Release the currently selected contact
         searchText() {
             this.activeIndex = -1;
         },
     },
     computed: {
+        // Map contacts to strings for searching.
         contactsAsStrings() {
             return this.contacts.map((contact) => {
                 const { name, email, address, phone } = contact;
                 return [name, email, address, phone].join('');
             });
         },
+        // Return contacts filtered by the search box.
         filteredContacts() {
             if (!this.searchText) return this.contacts;
                 return this.contacts.filter((contact, index) =>
