@@ -1,13 +1,13 @@
 <script>
 export default {
-    prop: {
+    props: {
         modelValue: {type: String, default: ''},
     },
 
     emits: ['submit', 'update:modelValue'],
     methods: {
         updateModelValue(e) {
-            this.$emit('update:modelValue', e.targer.value);
+            this.$emit('update:modelValue', e.target.value);
         },
         submit() {
             this.$emit('submit');

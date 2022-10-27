@@ -1,7 +1,7 @@
 <script>
 export default {
     props: {
-        contact: { type: Object, required: true },
+        contact: {type: Object, required: true},
     },
 };
 </script>
@@ -26,12 +26,11 @@ export default {
         </div>
         <div class="p-1">
             <strong>Liên hệ yêu thích:&nbsp;</strong>
-            <i
+            <i 
                 v-if="contact.favorite"
                 class="fas fa-check"
             />
-
-            <i
+            <i 
                 v-else
                 class="fas fa-times"
             />

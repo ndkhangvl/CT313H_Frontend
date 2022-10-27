@@ -6,6 +6,12 @@ const routes = [
         name: 'contactbook',
         component: ContactBook,
     },
+    {
+        path: '/:id',
+        name: 'contact.edit',
+        component: () => import('@/views/ContactEdit.vue'),
+        props: (route) => ({ contactId: parseInt(route.params.id)})
+    },
 ];
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

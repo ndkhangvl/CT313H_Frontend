@@ -1,12 +1,12 @@
 <script>
 export default {
-    prop: {
-        contacts: { type: Array, default: () => [] },
-        activeIndex: { type: Number, default: -1},
+    props: {
+        contacts: {type: Array, default: () => []},
+        activeIndex: {type: Number, default: -1},
     },
     emits: ['update:activeIndex'],
     methods: {
-        updateActiveIndex(index) {
+        updateActiveIndex(index){
             this.$emit('update:activeIndex', index);
         },
     },
@@ -17,12 +17,12 @@ export default {
     <ul class="list-group">
         <li
             class="list-group-item"
-            v-for="(contact,index) in contacts"
+            v-for="(contact, index) in contacts"
             :key="contact.id"
-            :class="{ active: index === activeIndex}"
+            :class="{ active: index === activeIndex }"
             @click="updateActiveIndex(index)"
         >
             {{ contact.name }}
-    </li>
+        </li>
     </ul>
 </template>
