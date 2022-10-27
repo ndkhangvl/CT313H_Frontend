@@ -6,11 +6,11 @@ const routes = [
         name: 'contactbook',
         component: ContactBook,
     },
+
     {
-        path: '/:id',
-        name: 'contact.edit',
-        component: () => import('@/views/ContactEdit.vue'),
-        props: (route) => ({ contactId: parseInt(route.params.id)})
+        path: '/:pathMatch(.*)*',
+        name: 'notfound',
+        component: () => import('@/views/NotFound.vue'),
     },
 ];
 const router = createRouter({
